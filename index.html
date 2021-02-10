@@ -5,7 +5,7 @@
     <title>Маршруты в React</title>
     <style>
     a { margin:5px;}
-    .active{ color: red;font-weight: bold;}
+    .active{ color: red; font-weight: bold;}
     </style>
 </head>
 <body>
@@ -20,7 +20,7 @@
     const Router = ReactRouterDOM.BrowserRouter;
     const Route = ReactRouterDOM.Route;
     const Switch = ReactRouterDOM.Switch;
-    const Link = ReactRouterDOM.Link;
+    const NavLink = ReactRouterDOM.NavLink;
        
     class Home extends React.Component{
         render(){
@@ -47,11 +47,12 @@
     class Nav extends React.Component{
         render(){
             return <nav>
-                    <Link to="/">Главная</Link>  
-                    <Link to="/about">О сайте</Link>  
-                    <Link to="/products">Товары</Link>
+                <NavLink exact to="/" activeStyle={{color:"green", fontWeight:"bold"}}>Главная</NavLink>
+                    <NavLink to="/about" activeClassName="active">О сайте</NavLink>  
+                    <NavLink to="/products" activeClassName="active">Товары</NavLink>
                   </nav>;
         }
+        
     }
     ReactDOM.render(
         <Router>
